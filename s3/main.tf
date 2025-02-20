@@ -16,10 +16,6 @@ provider "aws" {
   region = var.aws_region
 }
 
-provider "random" {
-
-}
-
 resource "random_string" "bucket_suffix" {
   length  = 4
   special = false
@@ -28,11 +24,6 @@ resource "random_string" "bucket_suffix" {
 
 resource "aws_s3_bucket" "lambda_bucket" {
   bucket = "lambda-file-upload-with-terraform-${random_string.bucket_suffix.result}"
-
-  
-  lifecycle {
-    prevent_destroy = false
-  }
 }
 
 resource "aws_s3_bucket_ownership_controls" "lambda_bucket" {
