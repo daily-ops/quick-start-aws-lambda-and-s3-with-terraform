@@ -115,6 +115,10 @@ resource "aws_cloudwatch_log_group" "api_gw" {
 }
 ```
 
+## Preparation
+
+The configuration requires `aws_region` variable where it can be supplied through `terraform.tfvars` or `TF_VAR_<variable>`, then proceed to `init`, `plan`, and `apply` as needed.
+
 ## Test
 
 - Create a sample data file by running the command below at terminal prompt.
@@ -136,3 +140,7 @@ resource "aws_cloudwatch_log_group" "api_gw" {
     ```
 
     ![Uploaded file.](./docs/s3_uploaded_file.png "Uploaded file")
+
+- Checking CloudWatch log by logging in to AWS console and navigate to CloudWatch and expand the ***Logs*** from the menus. There will be Log Groups created for Lambda and API Gateway to find log message of each transaction.
+
+    ![CloudWatch](./docs/cloudwatch_loggroups.png "CloudWatch Log Groups")
