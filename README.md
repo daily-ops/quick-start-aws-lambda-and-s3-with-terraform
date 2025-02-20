@@ -1,7 +1,12 @@
 # Quick Start for Lambda
 A quick start for Lambda serverless function interacting with S3 bucket using Terraform configuration for provisioning and configuration management. The modules in Terraform configuration performs S3 buckets creation for the Lambda function itself and for data upload with basic security and ACL. It creates a Lambda function to receive details of order and performs upload operation. It also create API gateway for clients from internet to consume.
 
+## Pre-requisites
 
+
+* Terraform binary - If you currently don't have Terraform installed on your machine, this [guide](https://developer.hashicorp.com/terraform/install) will show you how to install the executable.
+* AWS account - AWS credential is required for AWS provider. Without modification to any part of the configuration, you may choose to use AWS profile or Environment Variable method, listed in this [guide](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication-and-configuration), otherwise the provider configuratoin can be modified to suit the need with any supported method.
+* 
 ## S3
 
 ### Create S3 bucket for Lambda function with restricted access
