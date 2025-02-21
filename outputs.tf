@@ -10,5 +10,10 @@ output "function_name" {
 
 output "s3_bucket_id" {
   description = "ID of the S3 bucket storing the files."
-  value = module.s3.s3_bucket_id
+  value = module.s3.s3_data_bucket_id
+}
+
+output "s3_bucket_arn" {
+  description = "ARN of the S3 bucket storing the files."
+  value = module.s3.s3_data_bucket_arn
 }
