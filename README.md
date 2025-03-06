@@ -153,3 +153,7 @@ resource "aws_cloudwatch_log_group" "api_gw" {
 
   <img width="860" alt="image" src="https://github.com/user-attachments/assets/945789e1-31e6-4e68-a1b1-1a0af386aec5" />
 
+- Metrics from individual function showing the trends.
+
+  <img width="1206" alt="image" src="https://github.com/user-attachments/assets/21a28196-3e95-43b8-a2c6-acc2e4d4d481" />
+
