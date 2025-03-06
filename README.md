@@ -1,5 +1,6 @@
 # Quick Start for Lambda
-A quick start for Lambda serverless function interacting with S3 bucket using Terraform configuration for provisioning and configuration management. The modules in Terraform configuration performs S3 buckets creation for the Lambda function itself and for data upload with basic security and ACL. It creates a Lambda function to receive details of order and performs upload operation. It also create API gateway for clients from internet to consume.
+
+The scenario in this setup is we use Lambda function to process order and upload the order details into S3 bucket. The Lambda serverless function interacting with S3 bucket using Terraform configuration for provisioning and configuration management. The modules in Terraform configuration performs S3 buckets creation for the Lambda function itself and for data upload with basic security and ACL. It creates a Lambda function to receive details of order and performs upload operation. It also create API gateway for clients from internet to consume.
 
 ## Pre-requisites
 
