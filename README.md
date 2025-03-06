@@ -6,10 +6,10 @@ A quick start for Lambda serverless function interacting with S3 bucket using Te
 
 * Terraform binary - If you currently don't have Terraform installed on your machine, this [guide](https://developer.hashicorp.com/terraform/install) will show you how to install the executable.
 * AWS account - AWS credential is required for AWS provider. Without modification to any part of the configuration, you may choose to use AWS profile or Environment Variable method, listed in this [guide](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication-and-configuration), otherwise the provider configuratoin can be modified to suit the need with any supported method.
-* 
+
 ## S3
 
-### Create S3 bucket for Lambda function with restricted access
+### Create S3 bucket for Lambda function itself with restricted access
 
 ```
 resource "random_string" "bucket_suffix" {
@@ -43,7 +43,7 @@ resource "aws_s3_bucket_acl" "lambda_bucket" {
 ```
 
 
-### Similarly, create S3 bucket for data upload with restricted access
+### Create another S3 bucket for data upload with restricted access
 
 ```
 
@@ -71,7 +71,7 @@ resource "aws_s3_bucket_acl" "data_bucket" {
 
 ```
 
-## Lambda
+## The function of Lambda function
 
 The [Python script](./lambda/functions/upload.py) reads data from json posted into the function and extract order id to be used as filename/key stored on the S3 bucket. The `aws_lambda_function` resource is used to manage the Lambda function with associated role `aws_iam_role.lambda_exec.arn` to assume with appropriate policies attached. 
 
@@ -96,7 +96,7 @@ resource "aws_lambda_function" "upload_function" {
 }
 ```
 
-## API Gateway
+## Fronting Lambda function with An API Gateway
 
 The resource `aws_apigatewayv2_route` of API Gateway defines the proxy service for the Lambda function via `POST` method at the path `/upload` receiving json data to pass as input parameter to the Lambda function. The cloud watch log group is defined using the resource `aws_cloudwatch_log_group` and can be used for troubleshooting.
 
@@ -115,11 +115,14 @@ resource "aws_cloudwatch_log_group" "api_gw" {
 }
 ```
 
-## Preparation
+## Environment Preparation
 
-The configuration requires `aws_region` variable where it can be supplied through `terraform.tfvars` or `TF_VAR_<variable>`, then proceed to `init`, `plan`, and `apply` as needed.
+- Supply the required variable `aws_region` through either `terraform.tfvars` or `TF_VAR_<variable>`.
+- Proceed to `terraform init`.
+- Proceed to `terraform plan` and review the resources to be created.
+- Proceed to `terraform apply`.
 
-## Test
+## Test Lambda function
 
 - Create a sample data file by running the command below at terminal prompt.
   
