@@ -148,3 +148,8 @@ resource "aws_cloudwatch_log_group" "api_gw" {
 - Checking CloudWatch log by logging in to AWS console and navigate to CloudWatch and expand the ***Logs*** from the menus. There will be Log Groups created for Lambda and API Gateway to find log message of each transaction.
 
     ![CloudWatch](./docs/cloudwatch_loggroups.png "CloudWatch Log Groups")
+
+- Metrics and graphs showing useful trends such as invocations, duration of processing time, error count.
+
+  <img width="860" alt="image" src="https://github.com/user-attachments/assets/945789e1-31e6-4e68-a1b1-1a0af386aec5" />
+
